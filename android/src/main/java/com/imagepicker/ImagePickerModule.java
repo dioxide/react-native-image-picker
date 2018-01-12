@@ -241,6 +241,44 @@ public class ImagePickerModule extends ReactContextBaseJavaModule
       {
         cameraIntent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, videoDurationLimit);
       }
+      //该方法使用简单 但是画面质量 只有0 和 1 2种 如果是1 1秒大概在2m 
+      //6秒的视频12m左右 上传和播放都会延迟  如果用第三方进行压缩 也比较耗时 换了一种方式
+      
+ /*     
+mMediaRecorder = new MediaRecorder();
+mMediaRecorder.reset();
+if (mCamera != null)
+    mMediaRecorder.setCamera(mCamera);
+mMediaRecorder.setOnErrorListener(this);
+mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
+mMediaRecorder.setVideoSource(VideoSource.CAMERA);// 视频源
+mMediaRecorder.setAudioSource(AudioSource.MIC);// 音频源
+mMediaRecorder.setOutputFormat(OutputFormat.MPEG_4);// 视频输出格式
+mMediaRecorder.setAudioEncoder(AudioEncoder.AMR_NB);// 音频格式
+mMediaRecorder.setVideoSize(mWidth, mHeight);// 设置分辨率：
+//setVideoSize需要权衡的因素较多，主要包括三方面：MediaRecorder支持的录制尺寸、
+// 视频文件的大小以及兼容不同Android机型。这里采用640 * 480（微信小视频的尺寸是320*240），
+// 文件大小在500-1000kb之间，并且市面上99%以上机型支持此录制尺寸。
+mMediaRecorder.setVideoSize(640, 480);
+// 设置录制的视频帧率。必须放在设置编码和格式的后面，否则报错  
+// mMediaRecorder.setVideoFrameRate(16);// 这个我把它去掉了，感觉没什么用
+mMediaRecorder.setVideoEncodingBitRate(1 * 1024 * 1024);// 设置帧频率，然后就清晰了 肯定文件越大越清晰
+mMediaRecorder.setOrientationHint(90);// 输出旋转90度，保持竖屏录制
+mMediaRecorder.setVideoEncoder(VideoEncoder.MPEG_4_SP);// 视频录制格式
+// mediaRecorder.setMaxDuration(Constant.MAXVEDIOTIME * 1000);
+mMediaRecorder.setOutputFile(mRecordFile.getAbsolutePath());
+mMediaRecorder.prepare();
+try {
+    mMediaRecorder.start();
+} catch (IllegalStateException e) {
+    e.printStackTrace();
+} catch (RuntimeException e) {
+    e.printStackTrace();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+*/
+
     }
     else
     {
