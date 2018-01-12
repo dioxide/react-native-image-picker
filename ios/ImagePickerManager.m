@@ -164,6 +164,11 @@ RCT_EXPORT_METHOD(showImagePicker:(NSDictionary *)options callback:(RCTResponseS
         }
         else {
             self.picker.videoQuality = UIImagePickerControllerQualityTypeIFrame1280x720;
+            
+            //self.picker.videoQuality = UIImagePickerControllerQualityTypeIFrame1280x720;
+            //self.picker.videoQuality = UIImagePickerControllerQualityTypeIFrame960x540;
+            //self.picker.videoQuality = UIImagePickerControllerQualityType640x480;
+            
         }
 
         id durationLimit = [self.options objectForKey:@"durationLimit"];
